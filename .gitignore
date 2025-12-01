@@ -12,3 +12,5 @@ obj/
 /IphoneTest.Core/obj/
 /data/*.jsonl
 /storage/*.jsonl
+/system/tools/playright/node_modules/
+/system/tools/playright/package-lock.json
