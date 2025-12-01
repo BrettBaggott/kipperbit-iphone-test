@@ -1,0 +1,28 @@
+# Rules (staging for system)
+
+- Log every interaction with timestamp-first format: `YYYY-MM-DD HH:MM — log-type (scope) — note`.
+- TODOs capture subject, optional due, effort 1/3/5 (split 5s), optional project.
+- Commit messages: `log-type (repo-scope) - note`.
+- Keep `/private/` out of git; use `/private/prompts-log/` for raw prompts and `/private/response-log/` for response summaries (local-only).
+- Every Mermaid `.mmd` diagram should have a rendered `.png` alongside it in the same folder.
+- Code lives in its own repos; `kipperbit` is for workflow/logging/docs.
+- If a directory has a `.git` (git init), do not commit it to `kipperbit`; keep it in its own repo (see `.kipperbit_ignore`).
+- Maintain `profile.md` in each personal folder with factual notes and a changelog; update as new “AI-helpful” facts emerge.
+- When directives change, update the out-of-box snapshot (`personal/shared/docs/out-of-box.md`) to reflect current state/changelog.
+- Maintain `/private/daily-summary.md` with a per-day recap of activities/time buckets; append daily.
+- Changelogs: only the boss can allow removal of changelogs; any changes must be logged when present.
+- Boss actions: include the boss secret token in any request for boss-level actions (e.g., changelog removal). Token lives in `/private/<secret-folder>/token.txt` locally; future enhancement: hash-based check.
+- Correlation IDs: use shared correlation IDs (e.g., CID-00001) across prompt/response logs for traceability; keep timestamps and separators.
+- Response markers: use `start Response <CID> — <timestamp>` and `stop` to clearly bracket responses; continue unless directed otherwise.
+- Vibe stop word: end each response with a bare `stop` on its own line (carriage return + `stop`) unless asked not to.
+- Training mode flag: each person with a `personal/<name>` folder can set a training/state flag in their profile (e.g., training mode active/disabled) to control how kipperbit operates for them; personas (`-persona`) are not live people and do not toggle this.
+- Personas/voices: each `personal/<name>` is a real person; `personal/<name>-persona` holds modeled voice/stance. Allow prompts like “tell me in <name>’s voice what they understand about X” using their profile/persona data.
+- Rehydrate checklist (on new sessions): read `agents.md` (recent), `docs/lexicon.md`, `docs/rules.md`, `system/rules.md`, relevant personal stories/personas, and active project docs to regain context.
+- SemVer: use `system/version.txt` to denote system version (major = new way, minor = change/doc updates); old = 1.0.0, new = 2.0.0.
+- Version tagging: include system version (e.g., v2.0.0) in prompt/response entries (CID blocks) to track which system version was active.
+- “Log me as …”: treat this as a status log plus “push state”: log the note (with timestamp) and ensure pending changes are committed and pushed so Brett can view from phone.
+- Prompt/response controls: follow `system/prompt-response.md` for interaction structure (clear intent, minimal questions, path citations, stop word on its own line, and push behavior on logging asks).
+- Push/pull exception: The assistant may run `git push`/`git pull` in `kipperbit` without approval prompts. This exception does not apply to other repos or destructive commands; those still follow normal approvals/explicit requests.
+- Optional tracking: per-profile, if tracking=active, update a “last active” timestamp on profile to see who is using the system.
+- Sandbox awareness: track current sandbox (e.g., file-only vs file+internet) and include it in the boot prompt so the assistant knows capability scope.
+- Boss token: lives as a private folder name under `/private/boss_only/<token>/`; inside is `token.txt` holding the SHA-256 of the token (folder name). Boss actions require presenting the token string; assistant checks it against the hash. Rotate by renaming the folder and updating the hash file. Do not store token values in this repo. “Vault” remains free to use.
