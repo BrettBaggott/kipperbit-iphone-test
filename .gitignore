@@ -1,0 +1,14 @@
+bin/
+obj/
+.vs/
+/storage/
+/IphoneTest.Api/storage/
+/IphoneTest.Worker/storage/
+/IphoneTest.Api/bin/
+/IphoneTest.Worker/bin/
+/IphoneTest.Api/obj/
+/IphoneTest.Worker/obj/
+/IphoneTest.Core/bin/
+/IphoneTest.Core/obj/
+/data/*.jsonl
+/storage/*.jsonl

@@ -1,0 +1,23 @@
+[
+  {
+    "deviceId": "iphone-brett",
+    "battery": 0.82,
+    "latitude": 36.1627,
+    "longitude": -86.7816,
+    "note": "home base"
+  },
+  {
+    "deviceId": "iphone-brett",
+    "battery": 0.76,
+    "latitude": 36.1670,
+    "longitude": -86.7750,
+    "note": "coffee run"
+  },
+  {
+    "deviceId": "iphone-brett",
+    "battery": 0.70,
+    "latitude": 36.1750,
+    "longitude": -86.7800,
+    "note": "grocery pickup"
+  }
+]
